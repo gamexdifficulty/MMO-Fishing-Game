@@ -8,6 +8,8 @@ from data.classes.player import Player
 from data.scenes.scene_home import SceneHome
 from data.scenes.scene_main_menu import SceneMainMenu
 
+from data.classes.font import Font
+
 class Game(FrostlightEngine):
     def __init__(self):
         super().__init__(canvas_size=[320,180])
@@ -37,6 +39,8 @@ class Game(FrostlightEngine):
         self.scene_manager.register_scene("main_menu", SceneMainMenu(self))
 
         self.scene_manager.load_scene("home")
+
+        self.font = Font(self,1)
 
         self.network_manager.run()
     
