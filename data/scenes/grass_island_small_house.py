@@ -14,17 +14,18 @@ if TYPE_CHECKING:
 class SceneHome:
     def __init__(self,game:"Game"):
         self.game = game
-        self.island_sprite = Sprite(os.path.join("scene1","island.png"))
-        self.grass_sprite = Sprite(os.path.join("scene1","grass.png"))
-        self.house_sprite = Sprite(os.path.join("scene1","house.png"))
-        self.water_fg_sprite = Sprite(os.path.join("scene1","water.png"))
-        self.water_bg_sprite = Sprite(os.path.join("scene1","water.png"))
-        self.cloud_sprite = Sprite(os.path.join("scene1","clouds.png"))
+
+        self.island_sprite = Sprite(os.path.join("scenes","grass_island_small_house","island.png"))
+        self.grass_sprite = Sprite(os.path.join("scenes","grass_island_small_house","grass.png"))
+        self.house_sprite = Sprite(os.path.join("scenes","grass_island_small_house","house.png"))
+        self.water_fg_sprite = Sprite(os.path.join("scenes","grass_island_small_house","water.png"))
+        self.water_bg_sprite = Sprite(os.path.join("scenes","grass_island_small_house","water.png"))
+        self.cloud_sprite = Sprite(os.path.join("scenes","grass_island_small_house","clouds.png"))
 
         self.grass_animation = Animation(self.game)
         grass_sprites = []
         for i in range(18):
-            grass_sprites.append(Sprite(os.path.join("scene1",f"grass{i+1}.png")))
+            grass_sprites.append(Sprite(os.path.join("scenes","grass_island_small_house",f"grass{i+1}.png")))
         
         self.grass_animation.register("windy",5,grass_sprites)
 
