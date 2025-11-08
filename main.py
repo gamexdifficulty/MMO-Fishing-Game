@@ -9,6 +9,7 @@ from data.scenes.grass_island_small_house import SceneHome
 from data.scenes.main_menu import SceneMainMenu
 
 from data.classes.font import Font
+from data.classes.time import Time
 
 class Game(FrostlightEngine):
     def __init__(self):
@@ -41,6 +42,7 @@ class Game(FrostlightEngine):
         self.scene_manager.load_scene("grass_island_small_house")
 
         self.font = Font(self,1)
+        self.time = Time(self)
 
         self.network_manager.run()
     
@@ -49,6 +51,7 @@ class Game(FrostlightEngine):
         self.network_manager.close()
     
     def update(self):
+        self.time.update()
         self.scene_manager.update()
 
     def draw(self):
