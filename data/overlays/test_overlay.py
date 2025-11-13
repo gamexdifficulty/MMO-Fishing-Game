@@ -1,9 +1,9 @@
 import os
 from frostlight_engine import *
+from data.classes.overlay_manager import register_overlay_class
 
-from data.classes.overlay_manager import OVERLAY_MANAGER
 
-@OVERLAY_MANAGER.register_overlay
+
 class TestOverlay:
 
     OVERLAY_NAME = "test_overlay"
@@ -17,7 +17,7 @@ class TestOverlay:
         self.house_mirror_sprite = Sprite(os.path.join("scenes","grass_island_inside","inside_small_house_mirror.png"))
 
     def update(self):
-        self.game.overlay_manager.update()
+        pass
 
     def draw(self):
         self.game.window.fill(51,44,58)
@@ -26,4 +26,4 @@ class TestOverlay:
         self.game.window.render(self.house_book_sprite,[0,0])
         self.game.window.render(self.house_mirror_sprite,[0,0])
 
-        self.game.player_manager.draw()
+register_overlay_class("test_overlay",TestOverlay)

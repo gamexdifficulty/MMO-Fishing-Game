@@ -3,7 +3,9 @@ from frostlight_engine import *
 from data.classes.network import NetworkManager
 from data.classes.player_manager import PlayerManager
 from data.classes.scene_manager import SceneManager
-from data.classes.overlay_manager import OVERLAY_MANAGER
+from data.classes.overlay_manager import OverlayManager
+import data.overlays
+
 from data.overlays import *
 from data.classes.player import Player
 
@@ -34,7 +36,8 @@ class Game(FrostlightEngine):
         self.network_manager = NetworkManager(self)
         self.scene_manager = SceneManager(self)
         self.player_manager = PlayerManager(self)
-        self.overlay_manager = OVERLAY_MANAGER
+        self.overlay_manager = OverlayManager(self)
+        self.overlay_manager.initialize()
 
         self.player = Player(self,True)
         self.player_manager.register_player(self.player)

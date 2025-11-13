@@ -1,8 +1,18 @@
+_registered_overlays = {}
+
+def register_overlay_class(name: str, cls):
+    _registered_overlays[name] = cls
+
 class OverlayManager:
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
         self.overlay = {}
         self.overlay_current = None
         self.overlay_active = False
+
+    def initialize(self):
+        for name, cls in _registered_overlays.items():
+            self.overlay[name] = cls(self.game)
 
     def update(self):
         if self.overlay_current != None:
@@ -24,4 +34,3 @@ class OverlayManager:
         self.overlay_current = None
         self.overlay_active = False
         
-OVERLAY_MANAGER = OverlayManager()
