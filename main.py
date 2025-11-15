@@ -34,18 +34,17 @@ class Game(FrostlightEngine):
         self.player_manager = PlayerManager(self)
         self.overlay_manager = OverlayManager(self)
 
+        self.font = Font(self,1)
+        self.time = Time(self)
         self.player = Player(self,True)
+
         self.player_manager.register_player(self.player)
 
         self.scene_manager.register_scene("grass_island_small_house", SceneHome(self))
         self.scene_manager.register_scene("main_menu", SceneMainMenu(self))
 
         self.scene_manager.load_scene("grass_island_small_house")
-
         self.overlay_manager.load_overlay("test_overlay")
-
-        self.font = Font(self,1)
-        self.time = Time(self)
 
         self.network_manager.run()
     

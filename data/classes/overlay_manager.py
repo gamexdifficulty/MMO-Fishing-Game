@@ -1,7 +1,7 @@
 import pkgutil
 import inspect
 import importlib
-import data
+import data.overlays
 
 class OverlayManager:
     def __init__(self, game):
