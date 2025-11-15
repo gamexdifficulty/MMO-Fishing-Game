@@ -37,7 +37,6 @@ class Game(FrostlightEngine):
         self.scene_manager = SceneManager(self)
         self.player_manager = PlayerManager(self)
         self.overlay_manager = OverlayManager(self)
-        self.overlay_manager.initialize()
 
         self.player = Player(self,True)
         self.player_manager.register_player(self.player)

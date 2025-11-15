@@ -1,8 +1,5 @@
 import os
 from frostlight_engine import *
-from data.classes.overlay_manager import register_overlay_class
-
-
 
 class TestOverlay:
 
@@ -25,5 +22,3 @@ class TestOverlay:
         self.game.window.render(self.house_oven_sprite,[0,0])
         self.game.window.render(self.house_book_sprite,[0,0])
         self.game.window.render(self.house_mirror_sprite,[0,0])
-
-register_overlay_class("test_overlay",TestOverlay)

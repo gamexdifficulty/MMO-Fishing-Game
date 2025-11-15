@@ -1,7 +1,7 @@
-_registered_overlays = {}
-
-def register_overlay_class(name: str, cls):
-    _registered_overlays[name] = cls
+import pkgutil
+import inspect
+import importlib
+import data
 
 class OverlayManager:
     def __init__(self, game):
@@ -10,9 +10,12 @@ class OverlayManager:
         self.overlay_current = None
         self.overlay_active = False
 
-    def initialize(self):
-        for name, cls in _registered_overlays.items():
-            self.overlay[name] = cls(self.game)
+        for module_info in pkgutil.iter_modules(data.overlays.__path__):
+            module = importlib.import_module(f"{data.overlays.__name__}.{module_info.name}")
+            for _, obj in inspect.getmembers(module, inspect.isclass):
+                if hasattr(obj, "OVERLAY_NAME"):
+                    instance = obj(self.game)
+                    self.register_overlay(instance)
 
     def update(self):
         if self.overlay_current != None:
