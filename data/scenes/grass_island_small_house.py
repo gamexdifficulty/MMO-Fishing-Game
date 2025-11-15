@@ -10,8 +10,6 @@ from data.classes.animation import Animation
 if TYPE_CHECKING:
     from main import Game
 
-# Mili Palette
-
 class SceneHome:
 
     SCENE_NAME = "grass_island_small_house"

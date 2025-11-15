@@ -28,7 +28,6 @@ class SaveManager:
 
         try:
             with open(self.path, "w+") as file:
-                print(f"data: {data}, file: {file}")
                 json.dump(data,file,ensure_ascii=True,indent=4,sort_keys=True)
                 return True
 
