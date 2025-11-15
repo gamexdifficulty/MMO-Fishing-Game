@@ -2,7 +2,6 @@ import os
 from frostlight_engine import *
 
 class TestOverlay:
-
     OVERLAY_NAME = "test_overlay"
 
     def __init__(self, game):

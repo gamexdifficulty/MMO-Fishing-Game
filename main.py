@@ -4,7 +4,6 @@ from data.classes.network import NetworkManager
 from data.classes.player_manager import PlayerManager
 from data.classes.scene_manager import SceneManager
 from data.classes.overlay_manager import OverlayManager
-import data.overlays
 
 from data.overlays import *
 from data.classes.player import Player
