@@ -13,6 +13,9 @@ if TYPE_CHECKING:
 # Mili Palette
 
 class SceneHome:
+
+    SCENE_NAME = "grass_island_small_house"
+
     def __init__(self,game:"Game"):
         self.game = game
 

@@ -3,6 +3,9 @@ import time
 from frostlight_engine import *
 
 class SceneInsideHouse:
+
+    SCENE_NAME = "inside_house"
+
     def __init__(self,game):
         self.game = game
         

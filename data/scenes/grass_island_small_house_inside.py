@@ -2,6 +2,8 @@ import os
 from frostlight_engine import *
 
 class SceneGrassIslandInside:
+    SCENE_NAME = "grass_Island_Inside"
+
     def __init__(self,game):
         self.game = game
 
@@ -9,7 +11,6 @@ class SceneGrassIslandInside:
         self.house_oven_sprite = Sprite(os.path.join("scenes","grass_island_inside","inside_small_house_oven.png"))
         self.house_book_sprite = Sprite(os.path.join("scenes","grass_island_inside","inside_small_house_book.png"))
         self.house_mirror_sprite = Sprite(os.path.join("scenes","grass_island_inside","inside_small_house_mirror.png"))
-
 
     def update(self):
         self.game.player_manager.update()

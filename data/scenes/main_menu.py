@@ -3,6 +3,9 @@ import time
 from frostlight_engine import *
 
 class SceneMainMenu:
+
+    SCENE_NAME = "main_menu"
+
     def __init__(self,game):
         self.game = game
 
