@@ -9,9 +9,6 @@ from data.classes.player import Player
 from data.classes.font import Font
 from data.classes.time import Time
 
-from data.scenes.grass_island_small_house import SceneHome
-from data.scenes.main_menu import SceneMainMenu
-
 class Game(FrostlightEngine):
     def __init__(self):
         super().__init__(canvas_size=[320,180],fps_limit=165)
