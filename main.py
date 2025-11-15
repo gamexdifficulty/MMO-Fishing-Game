@@ -4,15 +4,12 @@ from data.classes.network import NetworkManager
 from data.classes.player_manager import PlayerManager
 from data.classes.scene_manager import SceneManager
 from data.classes.overlay_manager import OverlayManager
-
-from data.overlays import *
 from data.classes.player import Player
+from data.classes.font import Font
+from data.classes.time import Time
 
 from data.scenes.grass_island_small_house import SceneHome
 from data.scenes.main_menu import SceneMainMenu
-
-from data.classes.font import Font
-from data.classes.time import Time
 
 class Game(FrostlightEngine):
     def __init__(self):
