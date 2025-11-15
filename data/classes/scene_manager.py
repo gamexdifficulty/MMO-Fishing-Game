@@ -14,7 +14,7 @@ class SceneManager:
         for module_info in pkgutil.iter_modules(data.scenes.__path__):
             module = importlib.import_module(f"{data.scenes.__name__}.{module_info.name}")
             for _, obj in inspect.getmembers(module, inspect.isclass):
-                # print(f"name={obj.__name__}")
+
                 if hasattr(obj, "SCENE_NAME") and obj.SCENE_NAME not in blacklist:
                 
                     print(f"obj={obj}")
