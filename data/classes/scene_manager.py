@@ -1,7 +1,6 @@
 import pkgutil
 import importlib
 import inspect
-import data
 import data.scenes
 
 blacklist = ["inside_house"]
