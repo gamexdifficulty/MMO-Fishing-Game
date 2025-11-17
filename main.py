@@ -39,7 +39,7 @@ class Game(FrostlightEngine):
 
         self.player_manager.register_player(self.player)
 
-        self.scene_manager.load_scene(self.save_manager.load("current_scene","grass_island_small_house"))
+        self.scene_manager.load_scene("main_menu")
 
         self.network_manager.run()
     
@@ -48,7 +48,9 @@ class Game(FrostlightEngine):
         self.network_manager.close()
     
     def update(self):
-        self.time.update()
+        if self.state != "main_menu":
+            self.time.update()
+        
         self.scene_manager.update()
         self.overlay_manager.update()
 
