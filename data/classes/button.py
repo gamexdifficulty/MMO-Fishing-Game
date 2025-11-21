@@ -18,14 +18,15 @@ class Button:
         else:
             self.size = size
 
-        self.selected = True
+        self.selected = False
 
         self.callback = callback
         self.rect = pygame.Rect(self.pos[0],self.pos[1],self.size[0],self.size[1])
 
     def update(self):
         self.sprite.alpha = 1.0
-        if self.rect.collidepoint(self.game.input.mouse.get_pos()) or self.selected:
+        pos = self.game.input.mouse.position
+        if self.rect.collidepoint([pos[0]/6,pos[1]/6]) or self.selected:
             self.sprite.alpha = 0.5
             if self.game.input.get("accept"):
                 self.callback()

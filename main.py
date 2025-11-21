@@ -17,15 +17,28 @@ class Game(FrostlightEngine):
 
         self.state = "main_menu"
 
-        self.input.new("emoji1",KEY_1,CLICKED)
-        self.input.new("emoji2",KEY_2,CLICKED)
-        self.input.new("emoji3",KEY_3,CLICKED)
-        self.input.new("emoji4",KEY_4,CLICKED)
-        self.input.new("emoji5",KEY_5,CLICKED)
-        self.input.new("emoji6",KEY_6,CLICKED)
-        self.input.new("emoji7",KEY_7,CLICKED)
-        self.input.new("emoji8",KEY_8,CLICKED)
-        self.input.new("emoji9",KEY_9,CLICKED)
+        self.input.bind("emoji1",KEYBOARD.NUM_1,CLICKED)
+        self.input.bind("emoji2",KEYBOARD.NUM_2,CLICKED)
+        self.input.bind("emoji3",KEYBOARD.NUM_3,CLICKED)
+        self.input.bind("emoji4",KEYBOARD.NUM_4,CLICKED)
+        self.input.bind("emoji5",KEYBOARD.NUM_5,CLICKED)
+        self.input.bind("emoji6",KEYBOARD.NUM_6,CLICKED)
+        self.input.bind("emoji7",KEYBOARD.NUM_7,CLICKED)
+        self.input.bind("emoji8",KEYBOARD.NUM_8,CLICKED)
+        self.input.bind("emoji9",KEYBOARD.NUM_9,CLICKED)
+
+        self.input.bind("left",KEYBOARD.LEFT,PRESSED)
+        self.input.bind("left",KEYBOARD.A,PRESSED)
+        self.input.bind("right",KEYBOARD.RIGHT,PRESSED)
+        self.input.bind("right",KEYBOARD.D,PRESSED)
+
+        self.input.bind("up",KEYBOARD.UP,PRESSED)
+        self.input.bind("up",KEYBOARD.W,PRESSED)
+        self.input.bind("down",KEYBOARD.DOWN,PRESSED)
+        self.input.bind("down",KEYBOARD.S,PRESSED)
+
+        self.input.bind("accept",MOUSE.LEFT,PRESSED)
+        self.input.bind("accept",KEYBOARD.ENTER,PRESSED)
 
         self.save_manager = SaveManager(self)
         self.network_manager = NetworkManager(self)

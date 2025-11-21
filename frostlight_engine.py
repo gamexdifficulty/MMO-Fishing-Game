@@ -5,10 +5,10 @@ from init import *
 from core.core import Core as _Core
 from core.window import Window
 from core.sprite import Sprite
-from core.input import *
+from core.input_manager import KEYBOARD,MOUSE,PRESSED,CLICKED,RELEASED
 
 class FrostlightEngine:
-    def __init__(self, window_size=[1920,1080], canvas_size=[1920,1080], window_mode=pygame.RESIZABLE, title="New Game", fps_limit=0):
+    def __init__(self, window_size=[1920,1080], canvas_size=[1920,1080], window_mode=glfw.RESIZABLE, title="New Game", fps_limit=0):
         frame = inspect.currentframe()
         if frame is not None:
             args = inspect.getargvalues(frame)[3]
@@ -22,13 +22,21 @@ class FrostlightEngine:
         GLOBAL_ENVIRONMENT.MODERNGL_CONTEXT = self.window._ctx
         
         self.logger = self.__core.logger
+        self.save_manager = self.__core.save_manager
         self.input = self.__core.input_manager
-        
+        self.input._register_callbacks(self.window.window)
         self.delta_time = self.__core.delta_time
 
     def __engine_update(self):
+        self.input._update()
+        self.window.poll_events()
+
+        if self.window.should_close():
+            self.event_quit()
+            self.__core.main_loop_running = False
+            self.window.close()
+             
         self.delta_time = self.__core.delta_time
-        pygame.display.set_caption(str(self.__core.get_fps()))
 
     def update(self):
         ...

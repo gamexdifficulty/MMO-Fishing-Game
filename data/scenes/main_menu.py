@@ -13,7 +13,7 @@ class SceneMainMenu:
 
     def __init__(self,game:"Game"):
         self.game = game
-        self.play_button = Button(self.game,os.path.join("ui","main_menu_button.png"),[100,100],[100,50],self.button_press_play)
+        self.play_button = Button(self.game,os.path.join("ui","main_menu_button.png"),[100,100],[45,15],self.button_press_play)
 
     def button_press_play(self):
         self.game.scene_manager.load_scene(self.game.save_manager.load("current_scene","grass_island_small_house"))
